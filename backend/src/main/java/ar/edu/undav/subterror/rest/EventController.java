@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@CrossOrigin
-@RequestMapping(value = "/event")
+@RequestMapping(value = "/api")
 public class EventController
 {
     private EventService eventService;
@@ -28,12 +27,12 @@ public class EventController
         this.eventService = eventService;
     }
 
-    @GetMapping
+    @GetMapping(value = "/event")
     public List<Event> getAllEvent(){
         return this.eventService.getAllEvent();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/event/{id}")
     public ResponseEntity<Event> getEvent(@PathVariable Long id){
         ResponseEntity<Event> response;
         Event event = eventService.getEvent(id);
@@ -47,7 +46,7 @@ public class EventController
         return response;
     }
 
-    @PostMapping
+    @PostMapping(value = "/event")
     public ResponseEntity<Event> createEvent(@RequestBody Event event){
         // Guardamos y persistimos en la bd
         eventService.addEvent(event);
