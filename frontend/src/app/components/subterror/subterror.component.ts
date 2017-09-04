@@ -9,7 +9,10 @@ import { SubterrorService } from '../../services/SubterrorService'
 export class SubterrorComponent implements OnInit {
 
   public events;
+  public stations;
+  public eventTypes;
   public errorMessage;
+
 
   constructor(private _subterrorService: SubterrorService) {}
 
@@ -41,8 +44,8 @@ export class SubterrorComponent implements OnInit {
     this._subterrorService.getStations()
       .subscribe(
         results => {
-          this.events = results;
-          console.log(this.events);
+          this.stations = results;
+          console.log(this.stations);
         },
         error => {
           this.errorMessage = <any>error;
@@ -59,8 +62,8 @@ export class SubterrorComponent implements OnInit {
     this._subterrorService.getEventType()
       .subscribe(
         results => {
-          this.events = results;
-          console.log(this.events);
+          this.eventTypes = results;
+          console.log(this.eventTypes);
         },
         error => {
           this.errorMessage = <any>error;
