@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'headerComponent',
-  templateUrl: 'header.component.html'
+  selector: 'navComponent',
+  templateUrl: 'nav.component.html'
 })
 
-export class HeaderComponent {
+export class NavComponent {
   public title:string;
 
   constructor(){
