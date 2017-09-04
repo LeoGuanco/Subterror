@@ -6,6 +6,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { LineChartDemoComponent } from './components/line-chart-demo/line-chart-demo.component';
 import { ChartsModule } from 'ng2-charts';
 
+import { SubterrorService } from './services/SubterrorService';
+
 // Importamos el módulo http del paquete http de Angular
 import { HttpModule, JsonpModule } from '@angular/http';
 import { SubterrorComponent } from './components/subterror/subterror.component';
@@ -22,7 +24,7 @@ import { SubterrorComponent } from './components/subterror/subterror.component';
     ChartsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SubterrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
