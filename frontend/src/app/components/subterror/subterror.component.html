@@ -6,10 +6,12 @@
 
     <label>Selecciona tu estacion:</label>
     <select class="form-control" name="station" id="station_id">
+      <option *ngFor="let station of stations" value="{{stations.id}}">{{station.station}}</option>
     </select>
 
     <label>Selecciona el tipo de inconveniente:</label>
     <select class="form-control" name="eventType" id="eventtype_id">
+      <option *ngFor="let eventType of eventTypes" value="{{eventType.id}}">{{eventType.description}}</option>
     </select>
 
     <br>
