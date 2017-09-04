@@ -45,5 +45,5 @@ frontend/e2e/*.map
 # System Files
 .DS_Store
 Thumbs.db
-backend/target/maven-status/
+backend/target/
 frontend/node_modules/
