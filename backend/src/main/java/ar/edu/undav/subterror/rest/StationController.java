@@ -11,7 +11,7 @@ import java.util.List;
  * Created by leo on 6/14/17.
  */
 @RestController
-@RequestMapping(value = "/station")
+@RequestMapping(value = "/api")
 public class StationController {
     private StationService stationService;
 
@@ -20,12 +20,12 @@ public class StationController {
         this.stationService = stationService;
     }
 
-    @GetMapping
+    @GetMapping(value = "/station")
     public List<Station> getAll(){
         return this.stationService.getAllStation();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/station/{id}")
     public Station getStation(@PathVariable Long id){
         return stationService.getStationById(id);
     }

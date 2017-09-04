@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping(value = "/eventtype")
+@RequestMapping(value = "/api")
 public class EventTypeController {
 
     private EventTypeService eventTypeService;
@@ -23,12 +23,12 @@ public class EventTypeController {
         this.eventTypeService = eventTypeService;
     }
 
-    @GetMapping
+    @GetMapping("/eventtype")
     public List<EventType> getAllEventType(){
         return this.eventTypeService.getAllEventType();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/eventtype/{id}")
     public EventType getEventType(@PathVariable Long id){
         return this.eventTypeService.getEventTypeById(id);
     }
