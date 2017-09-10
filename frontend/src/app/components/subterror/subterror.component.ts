@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SubterrorService } from '../../services/SubterrorService'
+import { EventService } from '../../services/EventService';
+import { StationService } from '../../services/StationService';
+import { EventTypeService } from '../../services/EventTypeService';
 
 @Component({
   selector: 'app-subterror',
@@ -14,7 +16,9 @@ export class SubterrorComponent implements OnInit {
   public errorMessage;
 
 
-  constructor(private _subterrorService: SubterrorService) {}
+  constructor(private _eventService: EventService,
+              private _stationService: StationService,
+              private  _eventTypeService: EventTypeService) {}
 
   ngOnInit() {
     this.getEvents();
@@ -23,7 +27,7 @@ export class SubterrorComponent implements OnInit {
   }
 
   getEvents() {
-    this._subterrorService.getEvents()
+    this._eventService.getEvents()
       .subscribe(
         results => {
           this.events = results;
@@ -34,14 +38,13 @@ export class SubterrorComponent implements OnInit {
 
           if(this.errorMessage !== null){
             console.log(this.errorMessage);
-            alert("Error en la peticion");
           }
         }
       )
   }
 
   getStations(){
-    this._subterrorService.getStations()
+    this._stationService.getStations()
       .subscribe(
         results => {
           this.stations = results;
@@ -52,14 +55,13 @@ export class SubterrorComponent implements OnInit {
 
           if(this.errorMessage !== null){
             console.log(this.errorMessage);
-            alert("Error en la peticion");
           }
         }
       )
   }
 
   getEventType(){
-    this._subterrorService.getEventType()
+    this._eventTypeService.getEventType()
       .subscribe(
         results => {
           this.eventTypes = results;
@@ -70,7 +72,6 @@ export class SubterrorComponent implements OnInit {
 
           if(this.errorMessage !== null){
             console.log(this.errorMessage);
-            alert("Error en la peticion");
           }
         }
       )
