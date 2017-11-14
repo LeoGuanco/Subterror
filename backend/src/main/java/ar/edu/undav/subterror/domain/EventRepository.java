@@ -14,9 +14,15 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<Event,Long>{
 
-    public Event findByStation(Station station);
+//    public Event findByStation(Station station);
+//
+//    public Event findByDate(Date date);
 
-    public Event findByDate(Date date);
+    public Event findById(Long id);
+
+    public Event save(Event event);
+
+    public Event findByStationAndDate(Station station, Date date);
 
     public Collection<Event> findByEventType_Description(String description);
 }

@@ -20,6 +20,7 @@ public class Event {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date = new Date();
 
+    @Column(name = "sense")
     private String sense;
 
     @ManyToOne
