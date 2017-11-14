@@ -14,7 +14,9 @@ export class SubterrorComponent implements OnInit {
   public stations;
   public eventTypes;
   public errorMessage;
-
+  public sense : String;
+  public station : String;
+  public eventType : JSON;
 
   constructor(private _eventService: EventService,
               private _stationService: StationService,
@@ -41,6 +43,18 @@ export class SubterrorComponent implements OnInit {
           }
         }
       )
+  }
+
+  saveEvent() {
+    let data = {
+      "sense" : this.sense,
+      "eventType" : this.eventType,
+      "station" : this.station
+    };
+
+    console.log(this.eventType);
+
+    // this._eventService.saveEvent(data);
   }
 
   getStations(){

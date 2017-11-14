@@ -2,19 +2,19 @@
   <h2>Ingresa tu inconveniente:</h2>
   <form id="subterrorForm">
     <label>Destino a:</label>
-    <input class="form-control" type="text" name="sense" placeholder="Ej: Destino a Retiro">
+    <input class="form-control" type="text" name="sense" placeholder="Ej: Destino a Retiro" [(ngModel)]="sense" required>
 
     <label>Selecciona tu estacion:</label>
-    <select class="form-control" name="station" id="station_id">
-      <option *ngFor="let station of stations" value="{{stations.id}}">{{station.station}}</option>
+    <select class="form-control" name="station" id="station_id" [(ngModel)]="station" required>
+      <option *ngFor="let s of stations" value="{{s}}">{{s.station}}</option>
     </select>
 
     <label>Selecciona el tipo de inconveniente:</label>
-    <select class="form-control" name="eventType" id="eventtype_id">
-      <option *ngFor="let eventType of eventTypes" value="{{eventType.id}}">{{eventType.description}}</option>
+    <select class="form-control" name="eventType" id="eventtype_id" [(ngModel)]="eventType" required>
+      <option *ngFor="let et of eventTypes" value="{{et}}">{{et.description}}</option>
     </select>
 
     <br>
-    <button class="btn btn-primary" id="submit">Enviar</button>
+    <button class="btn btn-primary" id="submit" (click)="saveEvent()">Enviar</button>
   </form>
 </div>
